@@ -1,3 +1,7 @@
+:root {
+  color-scheme: light; /* Prevents browser auto-dark behavior */
+}
+
 /* ================= GLOBAL RESET ================= */
 * {
     margin: 0;
@@ -8,8 +12,6 @@
 /* ================= BODY STYLE ================= */
 body {
     font-family: 'Orbitron', sans-serif;
-    background-color: white;
-    color: #282828;
     line-height: 1.6;
 }
 /* ================= PAYMENT SECTION ================= */
