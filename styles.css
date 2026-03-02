@@ -133,3 +133,59 @@ footer {
     opacity: 1;
     transform: translateY(0);
 }
+/* ================= PRICING GRID ================= */
+
+.pricing-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 50px;
+}
+
+/* Individual pricing card */
+.pricing-card {
+    background-color: #1c1c2b;
+    padding: 30px;
+    width: 280px;
+    border-radius: 14px;
+    transition: 0.3s ease;
+    text-align: left;
+}
+
+/* Hover lift effect */
+.pricing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px #00f2ff40;
+}
+
+/* Price styling */
+.price {
+    font-size: 1.4rem;
+    color: #00f2ff;
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+/* Feature list styling */
+.pricing-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.pricing-card li {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+/* Highlight premium roadside card */
+.premium {
+    border: 2px solid #00f2ff;
+}
+
+/* Pricing note */
+.pricing-note {
+    margin-top: 40px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
