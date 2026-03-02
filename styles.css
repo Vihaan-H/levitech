@@ -12,7 +12,37 @@ body {
     color: #ffffff;
     line-height: 1.6;
 }
+/* ================= PAYMENT SECTION ================= */
 
+.payment-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+/* Card styling matches your other sections */
+.payment-card {
+    background-color: #1c1c2b;
+    padding: 35px;
+    width: 500px;
+    max-width: 90%;
+    border-radius: 14px;
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+/* Subtle hover lift */
+.payment-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 20px #00f2ff40;
+}
+
+/* Small note styling */
+.payment-note {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
 /* ================= NAVBAR ================= */
 .navbar {
     display: flex;
