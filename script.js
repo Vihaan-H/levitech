@@ -41,14 +41,24 @@ window.addEventListener('scroll', () => {
 
 
 /* ================= HERO PARALLAX ================= */
-const hero = document.querySelector('.hero');
+const heroTitle = document.querySelector('.hero h1');
 
-window.addEventListener('scroll', () => {
-    const offset = window.scrollY * 0.4;
-    hero.style.backgroundPosition = `center ${offset}px`;
-});
+if (heroTitle) {
+    const typingText = "Premium Local Tech Support";
+    let index = 0;
 
+    heroTitle.textContent = "";
 
+    function typeEffect() {
+        if (index < typingText.length) {
+            heroTitle.textContent += typingText.charAt(index);
+            index++;
+            setTimeout(typeEffect, 70);
+        }
+    }
+
+    typeEffect();
+}
 /* ================= BUTTON RIPPLE EFFECT ================= */
 document.querySelectorAll('button').forEach(button => {
     button.addEventListener('click', function(e) {
