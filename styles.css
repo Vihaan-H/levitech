@@ -233,6 +233,8 @@ body {
     padding: 50px;
     border: 2px dashed #444;
     border-radius: 12px;
+    background-color: white
+    color:black
 }
 
 /* ================= FOOTER ================= */
