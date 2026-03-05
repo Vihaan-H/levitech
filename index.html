@@ -9,7 +9,7 @@
     <!-- Page title shown in browser tab -->
     <title>Levi Creek Tech Support</title>
 
-    <!-- Linkst -->
+    <!-- Stylesheets and Assets -->
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" sizes="32x32" href="Tech-Support.png">
     <!-- Google font for modern tech feel (optional, remove if unwanted) -->
@@ -21,29 +21,33 @@
     <nav class="navbar">
         <div class="logo">Levi Creek Tech Support</div>
 
-        <!-- Navigation links scroll to sections -->
+        <!-- Navigation links scroll to sections - Internal anchors trigger smooth scroll -->
         <div class="nav-links">
             <a href="#services">Services</a>
             <a href="#pricing">Pricing</a>
+            <a href="#booking">Book</a>
             <a href="#contact">Contact</a>
         </div>
     </nav>
-<img src="Logo2LeviTech.png" width="300" alt="Logo">
 
 
     <!-- ================= HERO SECTION ================= -->
+    <!-- Main landing section with service overview and call-to-action -->
     <section class="hero">
+        <img src="Logo2LeviTech.png" width="300" alt="Levi Creek Tech Support Logo">
         <h1>Premium Local Tech Support</h1>
         <p>iPhone troubleshooting, Mac help, software fixes, and on-site roadside service in Levi Creek.</p>
 
-        <!-- Smooth scroll button -->
-        <button onclick="scrollToSection('contact')">Request Service</button>
+        <!-- Primary CTA button - Scrolls to booking calendar -->
+        <button onclick="scrollToSection('booking')">Request Service</button>
     </section>
 
-    <!-- ================= SERVICES ================= -->
+    <!-- ================= SERVICES SECTION ================= -->
+    <!-- Service offerings displayed as cards. Hidden by default, revealed on scroll -->
     <section id="services" class="section hidden">
         <h2>Services</h2>
 
+        <!-- Cards automatically scroll into view on page load -->
         <div class="card-grid">
 
             <!-- Card 1 -->
@@ -73,12 +77,13 @@
         </div>
     </section>
 
-    <!-- ================= PRICING ================= -->
-<section id="pricing" class="section hidden">
-    <h2>Service Pricing</h2>
+    <!-- ================= PRICING SECTION ================= -->
+    <!-- Detailed pricing for all service offerings. Hidden by default, revealed on scroll -->
+    <section id="pricing" class="section hidden">
+        <h2>Service Pricing</h2>
 
-    <!-- Grid layout for pricing cards -->
-    <div class="pricing-grid">
+        <!-- All prices in Canadian Dollars (CAD) for 30-minute sessions -->
+        <div class="pricing-grid">
 
         <!-- iPhone Support -->
         <div class="pricing-card">
@@ -127,13 +132,14 @@
                 <li>Priority scheduling</li>
             </ul>
         </div>
-<img src="business.png" width="300" alt="Logo">
-    </div>
-</section>
-<!-- ================= PAYMENT METHODS ================= -->
-<section id="payments" class="section hidden">
-    <h2>Payment Methods</h2>
+        </div>
+        <img src="business.png" width="300" alt="Business Services Image">
+    </section>
 
+    <!-- ================= PAYMENT METHODS SECTION ================= -->
+<!-- Multiple payment options for client convenience. Hidden by default, revealed on scroll -->
+<section id="payments" class="section hidden">
+    <h2>Payment Methods</h2>\n\n    <!-- Flexible payment options supporting multiple payment types -->
     <div class="payment-container">
 
         <!-- Payment description box -->
@@ -151,13 +157,15 @@
 
     </div>
 </section>
-    <!-- ================= REVIEWS EMBED ================= -->
-    <section class="section hidden">
+    <!-- ================= REVIEWS SECTION ================= -->
+    <!-- Client testimonials and review submission form. Hidden by default, revealed on scroll -->
+    <section id="reviews" class="section hidden">
         <h2>Client Reviews</h2>
 
         <!-- You will paste Google reviews embed code inside this div -->
         <div class="embed-box">
           
+    <!-- JotForm Review Submission - Allows clients to leave written reviews -->
     <iframe
       id="JotFormIFrame-260604067297056"
       title="Leave a Review"
@@ -170,39 +178,40 @@
       scrolling="no"
     >
     </iframe>
-   <iframe src="https://www.jotform.com/grid/260605015427045" frameborder="0" style="width: 100%; height: 100%; min-height: 500px; border:none;" scrolling="auto"></iframe>
+   
+   <!-- JotForm Review Display - Shows all submitted client reviews -->
+   <iframe src="https://www.jotform.com/grid/260605015427045" frameborder="0" style="width: 100%; height: 100%; min-height: 500px; border:none;" scrolling="auto" title="Client Reviews Display"></iframe>
         </div>
     </section>
 
-    <!-- ================= BOOKING EMBED ================= -->
-    <section class="section hidden">
+    <!-- ================= BOOKING SECTION ================= -->
+    <!-- Google Calendar embed for appointment scheduling. Directly accessible from hero CTA -->
+    <section id="booking" class="section hidden">
         <h2>Book an Appointment</h2>
 
-        <!-- You will paste Google Calendar embed here -->
+        <!-- Responsive calendar embed for easy scheduling -->
         <div class="embed-box">
-             <!-- Google Calendar Appointment Scheduling begin -->
-<iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1w_j6-4xuHHauCHjw203vI3ydQvta_qPvAjvc7Y9XWjYGleF_ZH1LofLEamVK8TXJeYzHCqUe_?gv=true" style="border: 0" width="100%" height="600" frameborder="0"></iframe>
-<!-- end Google Calendar Appointment Scheduling -->
+            <!-- Google Calendar Appointment Scheduling - Allows clients to select available time slots -->
+            <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1w_j6-4xuHHauCHjw203vI3ydQvta_qPvAjvc7Y9XWjYGleF_ZH1LofLEamVK8TXJeYzHCqUe_?gv=true" style="border: 0" width="100%" height="600" frameborder="0" title="Google Calendar Booking"></iframe>
         </div>
     </section>
 
-    <!-- ================= CONTACT ================= -->
+    <!-- ================= CONTACT SECTION ================= -->
+    <!-- Direct contact information and service area details -->
     <section id="contact" class="section hidden">
         <h2>Contact</h2>
 
-<!-- Replace with your real email -->
-<a href="mailto:vihaan.hindocha@gmail.com">Contact Us</a><br>
-<p>Service Area: Levi Creek, Mississauga</p>
-
-
-
-
-        <p>Roadside software support available.</p>
+        <!-- Primary contact method -->
+        <a href="mailto:vihaan.hindocha@gmail.com">Contact Us</a><br>
+        
+        <!-- Service coverage area -->
+        <p><strong>Service Area:</strong> Levi Creek, Mississauga</p>
+        <p>On-site roadside software support available throughout the area.</p>
     </section>
 
     <!-- ================= FOOTER ================= -->
     <footer>
-        <p>© 2026 Levi Creek Tech Support</p>
+        <p>&copy; 2026 Levi Creek Tech Support. All rights reserved.</p>
     </footer>
 
     <!-- Link JavaScript file -->

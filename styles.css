@@ -1,3 +1,15 @@
+/*
+ * ================= LEVI CREEK TECH SUPPORT - STYLES ================= 
+ * Modern dark theme tech website with:
+ * - Cyan (#00f2ff) accent color for tech aesthetic
+ * - Dark background (#0f111a) for reduced eye strain
+ * - 3D card effects with hover transformations
+ * - Responsive design for all device sizes
+ * - Smooth animations and transitions throughout
+ */
+
+/* ================= COLOR SCHEME VARIABLES ================= */
+/* Dark theme with cyan tech accent - adjust these values to rebrand */
 :root {
     color-scheme: dark;
     --accent: #00f2ff;
@@ -8,21 +20,9 @@
     --text-main: #ffffff;
     --text-soft: #a0aec0
 }
-/* Ripple effect */
-button {
-    position: relative;
-    overflow: hidden;
-}
 
-.ripple {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background: rgba(255,255,255,0.6);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    animation: ripple-animation 0.6s linear;
-}
+/* ================= BUTTON RIPPLE EFFECT ANIMATION ================= */
+/* Material Design inspired ripple effect - expands from click point */
 
 @keyframes ripple-animation {
     from {
@@ -37,14 +37,16 @@ button {
     }
 }
 
-/* ================= GLOBAL RESET ================= */
+/* ================= GLOBAL RESET & BASE STYLES ================= */
+/* Remove default margins/padding and ensure box-sizing is consistent */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* ================= BODY ================= */
+/* ================= BODY & TYPOGRAPHY ================= */
+/* Base styles for all text - Orbitron font for tech aesthetic */
 body {
     font-family: 'Orbitron', sans-serif;
     background-color: var(--bg-main);
@@ -52,7 +54,8 @@ body {
     line-height: 1.6;
 }
 
-/* ================= NAVBAR ================= */
+/* ================= NAVBAR - STICKY HEADER ================= */
+/* Fixed navigation visible at all times with scroll glow effect */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -93,6 +96,8 @@ body {
     margin-bottom: 20px;
 }
 
+/* ================= HERO CTA BUTTON ================= */
+/* Primary call-to-action button - scrolls to booking section on click */
 .hero button {
     margin-top: 25px;
     padding: 12px 28px;
@@ -104,19 +109,22 @@ body {
     transition: 0.3s ease;
 }
 
+/* Hover state - scales up and adds glow effect for feedback */
 .hero button:hover {
     transform: scale(1.05);
     box-shadow: 0 0 15px var(--accent-glow);
 }
 
-/* ================= SECTIONS ================= */
+/* ================= PAGE SECTIONS ================= */
+/* All page sections with scroll reveal animation */
 .section {
     padding: 80px 20px;
     text-align: center;
     background-color: var(--bg-main);
 }
 
-/* ================= SERVICE CARDS ================= */
+/* ================= SERVICE CARDS GRID ================= */
+/* Responsive grid of service cards - 3D hover tilt effect via JavaScript */
 .card-grid {
     display: flex;
     flex-wrap: wrap;
@@ -125,12 +133,14 @@ body {
     margin-top: 40px;
 }
 
+/* Individual service card - hover scales and glows */
 .card {
     background-color: var(--bg-card);
     padding: 25px;
     width: 260px;
     border-radius: 12px;
     transition: 0.3s ease;
+    perspective: 1000px;
 }
 
 .card h3 {
@@ -147,7 +157,8 @@ body {
     box-shadow: 0 0 20px var(--accent-glow);
 }
 
-/* ================= PRICING ================= */
+/* ================= PRICING CARDS GRID ================= */
+/* Displays all pricing tiers in responsive grid format */
 .pricing-grid {
     display: flex;
     flex-wrap: wrap;
@@ -156,6 +167,7 @@ body {
     margin-top: 50px;
 }
 
+/* Individual pricing tier card - shows price and features */
 .pricing-card {
     background-color: var(--bg-card);
     padding: 30px;
@@ -163,13 +175,16 @@ body {
     border-radius: 14px;
     transition: 0.3s ease;
     text-align: left;
+    perspective: 1000px;
 }
 
+/* Hover effect - lifts card with glow */
 .pricing-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 0 25px var(--accent-glow);
 }
 
+/* Price display - large, prominent accent color */
 .price {
     font-size: 1.4rem;
     color: var(--accent);
@@ -177,6 +192,7 @@ body {
     font-weight: bold;
 }
 
+/* Feature list styling */
 .pricing-card ul {
     list-style: none;
     padding-left: 0;
@@ -188,11 +204,12 @@ body {
     color: var(--text-soft);
 }
 
+/* Premium tier variant - adds accent border to highlight */
 .premium {
     border: 2px solid var(--accent);
 }
 
-/* ================= PAYMENT ================= */
+/* ================= PAYMENT METHODS SECTION ================= */
 .payment-container {
     display: flex;
     justify-content: center;
@@ -220,8 +237,9 @@ body {
     color: var(--text-soft);
 }
 
-/* ================= EMBED BOX (LIGHT SAFE ZONE) ================= */
-/* This is the ONLY light element so Google Calendar behaves */
+/* ================= EMBED BOX (LIGHT THEME CONTAINER) ================= */
+/* White background to make embedded iframes (Google Calendar, JotForm) visible */
+/* The rest of the site uses dark theme, but embeds require light backgrounds */
 .embed-box {
     margin-top: 30px;
     padding: 50px;
