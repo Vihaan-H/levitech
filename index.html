@@ -18,13 +18,14 @@
 <body>
 
     <!-- ================= NAVIGATION BAR ================= -->
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Primary navigation">
         <div class="logo">Levi Creek Tech Support</div>
 
         <!-- Navigation links scroll to sections - Internal anchors trigger smooth scroll -->
         <div class="nav-links">
             <a href="#services">Services</a>
             <a href="#pricing">Pricing</a>
+            <a href="#reviews">Reviews</a>
             <a href="#booking">Book</a>
             <a href="#contact">Contact</a>
         </div>
@@ -39,7 +40,7 @@
         <p>iPhone troubleshooting, Mac help, software fixes, and on-site roadside service in Levi Creek.</p>
 
         <!-- Primary CTA button - Scrolls to booking calendar -->
-        <button onclick="scrollToSection('booking')">Request Service</button>
+        <button onclick="scrollToSection('booking')" aria-label="Request service">Request Service</button>
     </section>
 
     <!-- ================= SERVICES SECTION ================= -->
@@ -139,7 +140,9 @@
     <!-- ================= PAYMENT METHODS SECTION ================= -->
 <!-- Multiple payment options for client convenience. Hidden by default, revealed on scroll -->
 <section id="payments" class="section hidden">
-    <h2>Payment Methods</h2>\n\n    <!-- Flexible payment options supporting multiple payment types -->
+    <h2>Payment Methods</h2>
+
+    <!-- Flexible payment options supporting multiple payment types -->
     <div class="payment-container">
 
         <!-- Payment description box -->
@@ -166,23 +169,31 @@
         <div class="embed-box">
           
     <!-- JotForm Review Submission - Allows clients to leave written reviews -->
-    <iframe
-      id="JotFormIFrame-260604067297056"
-      title="Leave a Review"
-      onload="window.parent.scrollTo(0,0)"
-      allowtransparency="true"
-      allow="geolocation; microphone; camera; fullscreen; payment"
-      src="https://form.jotform.com/260604067297056"
-      frameborder="0"
-      style="min-width:100%;max-width:100%;height:539px;border:none;"
-      scrolling="no"
-    >
-    </iframe>
+<div class="jotform-embed" style="min-height: 1px;" data-id="26064322229004506" data-type="interactive" data-iframesource="www.jotform.com"></div><script>(function(doc, id){var scripts=doc.getElementsByTagName("script")[0]; if (!doc.getElementById(id)){var script=doc.createElement("script"); script.async=1; script.id=id; script.src="https://cdn.jotfor.ms/s/umd/latest/for-report-embed.js"; scripts.parentNode.insertBefore(script, scripts);}})(document, "jotform-async");</script>
+  <script src="https://cdn.jotfor.ms/s/static/latest/static/feedback2.js"></script>
+  <script>
+    var componentID = new JotformFeedback({
+      
+  type: false,
+  width: 700,
+  height: 500,
+  fontColor: "#FFFFFF",
+  background: "#F59202",
+  isCardForm: false,
+  formId: "260604067297056"
+  ,
+      buttonText: "Feedback",
+      buttonSide: "left",
+      buttonAlign: "center",
+      base: "https://form.jotform.com/",
+    }).componentID;
+  </script>
+  <script src='https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js'></script>
+  <script>window.jotformEmbedHandler("iframe[id='" + componentID + "_iframe']", "https://form.jotform.com/")</script>
+        </div> <!-- end embed-box -->
+    </section> <!-- end reviews section -->
    
-   <!-- JotForm Review Display - Shows all submitted client reviews -->
-   <iframe src="https://www.jotform.com/grid/260605015427045" frameborder="0" style="width: 100%; height: 100%; min-height: 500px; border:none;" scrolling="auto" title="Client Reviews Display"></iframe>
-        </div>
-    </section>
+
 
     <!-- ================= BOOKING SECTION ================= -->
     <!-- Google Calendar embed for appointment scheduling. Directly accessible from hero CTA -->
@@ -202,9 +213,12 @@
         <h2>Contact</h2>
 
         <!-- Primary contact method -->
-        <a href="mailto:vihaan.hindocha@gmail.com">Contact Us</a><br>
-        
-        <!-- Service coverage area -->
+        <p>To get contact us,
+        </p><a href="https://form.jotform.com/260644006503043" target="_blank" rel="noopener noreferrer">
+    Fill out the Jotform
+</a>
+
+      <!-- Service coverage area -->
         <p><strong>Service Area:</strong> Levi Creek, Mississauga</p>
         <p>On-site roadside software support available throughout the area.</p>
     </section>

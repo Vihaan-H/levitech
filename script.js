@@ -8,9 +8,15 @@
 // Scrolls to a section by ID with smooth animation
 // Used by CTA buttons (e.g., "Request Service")
 function scrollToSection(id) {
-    document.getElementById(id).scrollIntoView({
-        behavior: "smooth"
-    });
+    const target = document.getElementById(id);
+    if (target) {
+        target.scrollIntoView({
+            behavior: "smooth"
+        });
+    } else {
+        // if the ID doesn't exist, log a warning (helps catch typos)
+        console.warn(`scrollToSection: no element found with id "${id}"`);
+    }
 }
 
 // ================= SCROLL REVEAL ANIMATION ================= 

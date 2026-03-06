@@ -84,6 +84,13 @@ body {
     color: var(--accent);
 }
 
+/* Accessibility: focus outlines for keyboard navigation */
+a:focus,
+button:focus {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+}
+
 /* ================= HERO ================= */
 .hero {
     text-align: center;
@@ -121,6 +128,19 @@ body {
     padding: 80px 20px;
     text-align: center;
     background-color: var(--bg-main);
+}
+
+/* ================= SCROLL REVEAL HELPERS ================= */
+/* Sections start hidden and are made visible when intersection observer fires */
+.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* ================= SERVICE CARDS GRID ================= */
