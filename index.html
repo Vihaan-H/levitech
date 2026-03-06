@@ -14,6 +14,11 @@
     <link rel="icon" type="image/png" sizes="32x32" href="Tech-Support.png">
     <!-- Google font for modern tech feel (optional, remove if unwanted) -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Preconnect to Jotform domains for faster embed/script loading -->
+    <link rel="preconnect" href="https://cdn.jotfor.ms">
+    <link rel="preconnect" href="https://form.jotform.com">
+    <!-- Preload feedback widget script for faster button popup -->
+    <link rel="preload" as="script" href="https://cdn.jotfor.ms/s/static/latest/static/feedback2.js">
 </head>
 <body>
 
@@ -170,7 +175,8 @@
           
     <!-- JotForm Review Submission - Allows clients to leave written reviews -->
 <div class="jotform-embed" style="min-height: 1px;" data-id="26064322229004506" data-type="interactive" data-iframesource="www.jotform.com"></div><script>(function(doc, id){var scripts=doc.getElementsByTagName("script")[0]; if (!doc.getElementById(id)){var script=doc.createElement("script"); script.async=1; script.id=id; script.src="https://cdn.jotfor.ms/s/umd/latest/for-report-embed.js"; scripts.parentNode.insertBefore(script, scripts);}})(document, "jotform-async");</script>
-  <script src="https://cdn.jotfor.ms/s/static/latest/static/feedback2.js"></script>
+  <!-- JotForm feedback widget script loaded asynchronously -->
+  <script src="https://cdn.jotfor.ms/s/static/latest/static/feedback2.js" async defer></script>
   <script>
     var componentID = new JotformFeedback({
       
@@ -188,7 +194,8 @@
       base: "https://form.jotform.com/",
     }).componentID;
   </script>
-  <script src='https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js'></script>
+  <!-- JotForm embed handler loaded asynchronously to speed display -->
+  <script src='https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js' async defer></script>
   <script>window.jotformEmbedHandler("iframe[id='" + componentID + "_iframe']", "https://form.jotform.com/")</script>
         </div> <!-- end embed-box -->
     </section> <!-- end reviews section -->

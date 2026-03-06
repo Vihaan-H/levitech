@@ -268,7 +268,27 @@ button:focus {
     color: #111827;
     border: none;
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 900px;         /* prevent too-wide content on large screens */
+    margin-left: auto;
+    margin-right: auto;
+    overflow-x: auto;         /* allow horizontal scroll for tightly constrained embeds */
 }
+
+/* Specific styling for JotForm embed container */
+.jotform-embed {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Force any JotForm iframe to scale to container width */
+.jotform-embed iframe {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 500px; /* give some reasonable initial height */
+}
+
 
 /* ================= FOOTER ================= */
 footer {
