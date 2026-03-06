@@ -1,7 +1,7 @@
 /*
  * ================= LEVI CREEK TECH SUPPORT WEBSITE ================= 
  * Main JavaScript file for interactive features and animations
- * Handles: Navigation, animations, scroll reveal, effects
+ * Handles: Navigation, animations, scroll reveal, effects, parallax
  */
 
 // ================= SMOOTH SCROLL FUNCTION ================= 
@@ -25,6 +25,22 @@ function scrollToSection(id) {
         console.warn(`scrollToSection: no element found with id "${id}"`);
     }
 }
+
+// ================= PARALLAX EFFECT ================= 
+// Creates depth by moving hero background differently than foreground
+window.addEventListener('scroll', () => {
+    const hero = document.querySelector('.hero');
+    const parallelContent = document.querySelector('.hero h1');
+    
+    if (hero && parallelContent) {
+        const scrollPosition = window.scrollY;
+        const heroOffset = hero.offsetTop;
+        
+        if (scrollPosition < heroOffset + hero.offsetHeight) {
+            parallelContent.style.transform = `translateY(${scrollPosition * 0.5}px)`;
+        }
+    }
+});
 
 // ================= SCROLL REVEAL ANIMATION ================= 
 // Uses Intersection Observer to reveal sections as they scroll into view

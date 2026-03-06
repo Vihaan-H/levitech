@@ -210,6 +210,7 @@ button:focus {
     color: var(--accent);
     margin: 15px 0;
     font-weight: bold;
+    animation: text-glow 1s ease-in-out infinite;
 }
 
 /* Feature list styling */
@@ -299,6 +300,7 @@ footer {
 }
 
 /* ================= RESPONSIVE MEDIA QUERIES ================= */
+/* Optimize layout for tablets and mobile devices */
 @media (max-width: 768px) {
     .nav-links {
         flex-direction: column;
@@ -321,5 +323,47 @@ footer {
     .hero {
         padding: 80px 10px;
     }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+}
+
+/* ================= ADDITIONAL ENHANCEMENTS ================= */
+/* Contact links with animation */
+a[href^="mailto:"],
+a[href^="https://form.jotform.com"] {
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, rgba(0, 242, 255, 0.1) 0%, rgba(0, 242, 255, 0.05) 100%);
+    border-radius: 5px;
+    color: var(--accent);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 242, 255, 0.3);
+    animation: fadeInUp 0.6s ease-out;
+}
+
+a[href^="mailto:"]:hover,
+a[href^="https://form.jotform.com"]:hover {
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
+    transform: translateY(-3px);
+    border: 1px solid rgba(0, 242, 255, 0.6);
+}
+
+/* ================= CONTACT LINK STYLING ================= */
+.contact-link {
+    font-size: 1.1rem;
+    margin: 20px 0;
+    padding: 15px 30px !important;
+    background: linear-gradient(135deg, rgba(0, 242, 255, 0.15) 0%, rgba(0, 242, 255, 0.08) 100%) !important;
+    box-shadow: 0 0 10px rgba(0, 242, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.contact-link:hover {
+    box-shadow: 0 0 25px rgba(0, 242, 255, 0.5) !important;
+    transform: translateY(-5px) !important;
+    background: linear-gradient(135deg, rgba(0, 242, 255, 0.25) 0%, rgba(0, 242, 255, 0.15) 100%) !important;
 }
 
