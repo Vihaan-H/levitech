@@ -13,6 +13,13 @@ function scrollToSection(id) {
         target.scrollIntoView({
             behavior: "smooth"
         });
+        // update the URL hash without jumping
+        if (history.pushState) {
+            history.pushState(null, null, `#${id}`);
+        } else {
+            // fallback for older browsers
+            window.location.hash = id;
+        }
     } else {
         // if the ID doesn't exist, log a warning (helps catch typos)
         console.warn(`scrollToSection: no element found with id "${id}"`);
@@ -22,27 +29,37 @@ function scrollToSection(id) {
 // ================= SCROLL REVEAL ANIMATION ================= 
 // Uses Intersection Observer to reveal sections as they scroll into view
 // Adds "show" class to trigger CSS animations
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        // When section becomes visible, add animation class
-        if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-        }
+// If the browser doesn't support IntersectionObserver, reveal everything immediately
+let observer;
+if ('IntersectionObserver' in window) {
+    observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            }
+        });
     });
-});
 
-// Apply observer to all hidden sections (marked with .hidden class)
-document.querySelectorAll(".hidden").forEach(section => {
-    observer.observe(section);
-});
+    // Apply observer to all hidden sections (marked with .hidden class)
+    document.querySelectorAll(".hidden").forEach(section => {
+        observer.observe(section);
+    });
+} else {
+    // fallback for old browsers: just add show class to all sections
+    document.querySelectorAll(".hidden").forEach(section => {
+        section.classList.add("show");
+    });
+}
+
 
 // ================= ANCHOR LINK SMOOTH SCROLL ================= 
 // All internal links (href="#...") smoothly scroll to their target
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
-        document.querySelector(this.getAttribute('href'))
-            .scrollIntoView({ behavior: 'smooth' });
+        // delegate to scrollToSection for consistency and URL updates
+        const id = this.getAttribute('href').substring(1);
+        scrollToSection(id);
     });
 });
 
@@ -52,15 +69,20 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Creates visual feedback that navbar "activates" on scroll
 const navbar = document.querySelector('.navbar');
 
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        // Cyan glow effect when scrolled past 50px
-        navbar.style.boxShadow = "0 0 20px rgba(0, 242, 255, 0.3)";
-    } else {
-        // Remove glow at top of page
-        navbar.style.boxShadow = "none";
-    }
-});
+// guard in case markup changes or script loads before nav rendered
+if (navbar) {
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            // Cyan glow effect when scrolled past 50px
+            navbar.style.boxShadow = "0 0 20px rgba(0, 242, 255, 0.3)";
+        } else {
+            // Remove glow at top of page
+            navbar.style.boxShadow = "none";
+        }
+    });
+} else {
+    console.warn('Navbar element not found; scroll glow disabled');
+}
 
 
 // ================= HERO TITLE TYPING EFFECT ================= 
@@ -110,19 +132,27 @@ document.querySelectorAll('button').forEach(button => {
 // Creates 3D perspective tilt effect when mouse hovers over cards
 // Tilts based on cursor position within the card
 document.querySelectorAll('.card, .pricing-card').forEach(card => {
+    // throttle updates to roughly 60fps using requestAnimationFrame
+    let ticking = false;
     card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
 
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
 
-        // Calculate tilt angles based on distance from center
-        const rotateX = ((y - centerY) / 15);
-        const rotateY = ((centerX - x) / 15);
+                // Calculate tilt angles based on distance from center
+                const rotateX = ((y - centerY) / 15);
+                const rotateY = ((centerX - x) / 15);
 
-        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                ticking = false;
+            });
+            ticking = true;
+        }
     });
 
     // Reset tilt when mouse leaves card

@@ -18,7 +18,7 @@
     --bg-section: #151521;
     --bg-card: #1c1c2b;
     --text-main: #ffffff;
-    --text-soft: #a0aec0
+    --text-soft: #a0aec0; /* semicolon added to prevent CSS parsing errors */
 }
 
 /* ================= BUTTON RIPPLE EFFECT ANIMATION ================= */
@@ -297,3 +297,29 @@ footer {
     text-align: center;
     color: var(--text-soft);
 }
+
+/* ================= RESPONSIVE MEDIA QUERIES ================= */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links a {
+        margin: 10px 0;
+    }
+
+    .card-grid, .pricing-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pricing-card, .card {
+        width: 90%;
+    }
+
+    .hero {
+        padding: 80px 10px;
+    }
+}
+
